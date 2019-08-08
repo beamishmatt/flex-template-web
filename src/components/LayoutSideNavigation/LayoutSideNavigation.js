@@ -10,6 +10,7 @@ import classNames from 'classnames';
 import {
   LayoutWrapperTopbar,
   LayoutWrapperSideNav,
+  LayoutWrapperAccountSettingsSideNav,
   LayoutWrapperMain,
   LayoutWrapperFooter,
 } from '../../components';
@@ -31,7 +32,10 @@ const prepareChildren = children => {
   React.Children.forEach(children, child => {
     if (child.type === LayoutWrapperTopbar) {
       childrenMap.layoutWrapperTopbar = child;
-    } else if (child.type === LayoutWrapperSideNav) {
+    } else if (
+      child.type === LayoutWrapperSideNav ||
+      child.type === LayoutWrapperAccountSettingsSideNav
+    ) {
       childrenMap.layoutWrapperSideNav = child;
     } else if (child.type === LayoutWrapperMain) {
       // LayoutWrapperMain needs different rootClassName
